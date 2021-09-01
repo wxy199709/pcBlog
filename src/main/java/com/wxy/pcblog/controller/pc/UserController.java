@@ -1,6 +1,9 @@
 package com.wxy.pcblog.controller.pc;
 
 
+import com.wxy.pcblog.config.filter.AuthFilter;
+import com.wxy.pcblog.vo.Result;
+import com.wxy.pcblog.vo.ResultUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,14 +26,16 @@ public class UserController {
 
     @RequestMapping(value = "/test",method = RequestMethod.GET)
     @ApiOperation(value = "测试")
+    @AuthFilter
     public String test(){
         return "hello" ;
     }
 
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     @ApiOperation(value = "用户登录")
-    public String login(){
-        return "hello" ;
+    public Result login(){
+
+        return ResultUtils.success() ;
     }
 
 }
