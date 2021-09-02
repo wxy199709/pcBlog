@@ -20,24 +20,18 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 @EnableSwaggerBootstrapUI
 public class swaggerConfig {
-    private ApiInfo pcApiInfo(){
+    private ApiInfo ApiInfo(){
         return new ApiInfoBuilder()
-                .title("pc端Api")
+                .title("易知博客Api")
                 .version("1.0")
                 .build();
     }
 
-    private ApiInfo wechatApiInfo(){
-        return new ApiInfoBuilder()
-                .title("微信端Api")
-                .version("1.0")
-                .build();
-    }
 
     @Bean(value = "pcApi")
     public Docket pcApi(){
         return new Docket(DocumentationType.SWAGGER_2)
-                .apiInfo(pcApiInfo())
+                .apiInfo(ApiInfo())
                 .groupName("pc-API")
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.wxy.pcblog.controller.pc"))
@@ -49,7 +43,7 @@ public class swaggerConfig {
     @Bean(value = "wechatApi")
     public Docket wechatApi(){
         return new Docket(DocumentationType.SWAGGER_2)
-                .apiInfo(wechatApiInfo())
+                .apiInfo(ApiInfo())
                 .groupName("wechat-API")
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.wxy.pcblog.controller.weChat"))
