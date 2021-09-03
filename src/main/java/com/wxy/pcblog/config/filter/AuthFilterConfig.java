@@ -62,10 +62,10 @@ public class AuthFilterConfig implements HandlerInterceptor {
 
 
             //不存在提示消息，不允许访问
-
-
+            return true;
 
         }
+        log.info("不存在token，不放行");
         return false;
     }
 

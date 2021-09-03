@@ -10,6 +10,8 @@ import org.springframework.cache.annotation.EnableCaching;
 @EnableCaching
 public class PcBlogApplication {
 
+
+
 	public static void main(String[] args) {
 		SpringApplication.run(PcBlogApplication.class, args);
 	}

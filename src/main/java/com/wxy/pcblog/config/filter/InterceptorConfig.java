@@ -45,6 +45,12 @@ public class InterceptorConfig implements WebMvcConfigurer {
         WebMvcConfigurer.super.addResourceHandlers(registry);
     }
 
-
-
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/*")
+                .allowedOriginPatterns("*")
+                .allowCredentials(true)
+                .allowedMethods("*")
+                .maxAge(3600);
+    }
 }
